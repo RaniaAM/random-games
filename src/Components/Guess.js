@@ -6,7 +6,11 @@ class Guess extends Component {
         return (
             <>
                 <Link to="/"> رجوع</Link>
-                <h1> Guess</h1>
+                <br />
+                <Link to="/guessWho">حزر فزر</Link>
+                <br />
+                <Link to="/guessTheThing">حزر الشي</Link>
+                <h1> على طرف لساني</h1>
             </>
         );
     }
