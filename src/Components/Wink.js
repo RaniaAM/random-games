@@ -16,23 +16,22 @@ class Wink extends Component {
         })
     }
 
-
     handleSubmit = e => {
         e.preventDefault();
         const num = parseInt(this.state.numOfPlayers)
-        let array = new Array(num).fill(this.state.numOfPlayers);
-        let arrayNames = [];
+        console.log(e)
+        // let array = new Array(num).fill(this.state.numOfPlayers);
+        // let arrayNames = [];
+        // for (let i = 0; i < this.state.numOfPlayers; i++) {
+        //     let { name } = e.target
+        //     arrayNames.push(name.value)
 
-        for (let i = 0; i < this.state.numOfPlayers; i++) {
-            let { name } = e.target
-            arrayNames.push(name.value)
+        //     console.log(name)
+        // }
 
-            console.log(name)
-        }
-
-        this.setState({
-            names: arrayNames
-        })
+        // this.setState({
+        //     names: arrayNames
+        // })
 
     }
 
@@ -62,7 +61,6 @@ class Wink extends Component {
     }
 
     render() {
-        console.log(this.state.newForm)
         return (
             <>
                 <Link to="/"> رجوع</Link>
