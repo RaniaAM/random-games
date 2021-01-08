@@ -3,81 +3,80 @@ import { Link, LinkNav } from 'react-router-dom'
 
 class Wink extends Component {
     state = {
-        numOfPlayers: 3,
-        newForm: null,
-        names: []
+        names: [],
+        characters: ["شايب", "ولد"],
+        display: "",
+        start: false,
+        namesOutput: null
 
     }
+    addPlayer = (e) => {
+        e.preventDefault()
 
-    handleChange = e => {
-        const { name, value } = e.target
         this.setState({
-            [name]: value
+            names: [...this.state.names, ""]
         })
     }
-
-    handleSubmit = e => {
-        e.preventDefault();
-        const num = parseInt(this.state.numOfPlayers)
-        console.log(e)
-        // let array = new Array(num).fill(this.state.numOfPlayers);
-        // let arrayNames = [];
-        // for (let i = 0; i < this.state.numOfPlayers; i++) {
-        //     let { name } = e.target
-        //     arrayNames.push(name.value)
-
-        //     console.log(name)
-        // }
-
-        // this.setState({
-        //     names: arrayNames
-        // })
-
+    handleChange = (e, index) => {
+        e.preventDefault()
+        this.state.names[index] = e.target.value
+        this.setState({ names: this.state.names })
     }
-
-
-    handleClick = e => {
-        e.preventDefault();
-        const num = parseInt(this.state.numOfPlayers)
-        let array = new Array(num).fill(this.state.numOfPlayers);
+    handleSubmit = (e) => {
+        e.preventDefault()
+        //hide form
         this.setState({
-            newForm: array.map((item, index) => (
-
-                <>
-                    <br />
-                    <label> اللاعب {index + 1} </label>
-                    <input type="text"
-                        name={index} />
-
-                    <br />
-                </>
-
-            ))
+            display: "none"
         })
-        // for (let i = 0; i < this.state.numOfPlayers; i++) {
 
-        // }
-        // console.log(newForm)
+        //random
+        let leng = this.state.names.length - 2
+        for (let i = 0; i < leng; i++) {
+            this.setState((prevState) => {
+                return {
+                    characters: [...prevState.characters, "بنت"],
+                    display: "none"
+                }
+            })
+        }
+        this.setState({
+            start: true
+        })
+
     }
-
+    randomPick = () => {
+        let characters = [...this.state.characters]
+        let lengt = characters.length
+        const newArray = []
+    }
     render() {
+
+
+        // this.state.start ? this.randomPick() : null
+
         return (
             <>
                 <Link to="/"> رجوع</Link>
-                <h1> غمزة</h1>
+                <form onSubmit={this.handleSubmit} style={{ display: this.state.display }}>
+                    {
+                        this.state.names.map((name, index) => {
+                            return (
+                                <div key={index}>
+                                    <input type="text" value={name} onChange={(e) => this.handleChange(e, index)}></input>
+                                </div>
+                            )
+                        })
+                    }
 
-                <form onSubmit={this.handleSubmit}>
-                    <label>عدد اللاعبين</label>
-                    <input type="number" value={this.state.numOfPlayers}
-                        onChange={this.handleChange}
-                        name="numOfPlayers" />
-                    <button onClick={this.handleClick}> التالي</button>‏
 
-
-                    {this.state.newForm}
+                    <button onClick={(e) => this.addPlayer(e)}>لاعب جديد</button>
                     <button type="submit">يلا نلعب</button>
 
                 </form>
+                <button onClick={this.randomPick}>Test</button>
+
+                {this.state.namesOutput}
+
             </>
         );
     }
