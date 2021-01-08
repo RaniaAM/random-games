@@ -3,13 +3,17 @@ import { Link, LinkNav } from 'react-router-dom'
 
 class Wink extends Component {
     state = {
-        names: [],
+        names: ['', '', ''],
         characters: ["شايب", "ولد"],
         display: "",
+        display2: "block",
         start: false,
-        namesOutput: null
+        namesOutput: null,
+        index: 0,
+        playerCard: null
 
     }
+
     addPlayer = (e) => {
         e.preventDefault()
 
@@ -17,11 +21,13 @@ class Wink extends Component {
             names: [...this.state.names, ""]
         })
     }
+
     handleChange = (e, index) => {
         e.preventDefault()
         this.state.names[index] = e.target.value
         this.setState({ names: this.state.names })
     }
+
     handleSubmit = (e) => {
         e.preventDefault()
         //hide form
@@ -42,22 +48,38 @@ class Wink extends Component {
         this.setState({
             start: true
         })
-
     }
+
     randomPick = () => {
         let characters = [...this.state.characters]
-        let lengt = characters.length
-        const newArray = []
+        characters = characters.sort(() => Math.random() - 0.5)
+        let names = [...this.state.names]
+        const output = characters.map((ele, index) => {
+            return <div className="card">
+                أنت يا {names[index]}
+                &nbsp; ‏تراك {characters[index]}
+            </div>
+        })
+        this.setState({ namesOutput: output })
+
     }
+
+    handleClick = e => {
+        e.preventDefault()
+        this.setState(prevState => {
+            return { index: prevState.index + 1, playerCard: prevState.namesOutput[this.state.index] }
+        })
+        if (this.state.index === this.state.namesOutput.length - 1) {
+            this.setState({ display2: 'none' })
+        }
+    }
+
     render() {
-
-
-        // this.state.start ? this.randomPick() : null
-
         return (
             <>
                 <Link to="/"> رجوع</Link>
                 <form onSubmit={this.handleSubmit} style={{ display: this.state.display }}>
+
                     {
                         this.state.names.map((name, index) => {
                             return (
@@ -74,9 +96,11 @@ class Wink extends Component {
 
                 </form>
                 <button onClick={this.randomPick}>Test</button>
-
-                {this.state.namesOutput}
-
+                <br />
+                <button onClick={this.handleClick} style={{ display: this.state.display2 }}>Click</button>
+                <div>
+                    {this.state.playerCard}
+                </div>
             </>
         );
     }
