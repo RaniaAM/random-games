@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div className="container justify-content-center text-center ">
+      <App />
+    </div>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
