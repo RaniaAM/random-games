@@ -1,55 +1,56 @@
 import React, { Component } from 'react'
-// import data from './DataSource'
-import firebase from '.././firebase.js';
+import UserContext from './UserContext'
 import { Link } from 'react-router-dom'
 
 
 class GuessWho extends Component {
+    static contextType = UserContext;
     state = {
         guessWho: [],
         items: null,
-        index: 0,
+        index: -1,
         display: '',
-        playerCard: null
     }
 
-    componentDidMount() {
-        const itemsRef = firebase.database().ref('data');
-        itemsRef.on('value', (snapshot) => {
-            let data = snapshot.val();
-            this.setState({ guessWho: data.guess.guessWho.sort(() => Math.random() - 0.5) })
-        });
+    //bring the data from context
+    componentDidUpdate() {
+        let data = this.context;
+        if (data.guess) {
+            if (this.state.guessWho.length === 0)
+                this.setState({ guessWho: data.guess.guessWho.sort(() => Math.random() - 0.5) })
+        }
     }
 
+    //next guess button
     handleClick = e => {
         e.preventDefault()
 
         this.setState(prevState => {
-            return { index: prevState.index + 1, playerCard: prevState.items[this.state.index] }
+            let display = prevState.display
+            if (prevState.index === prevState.guessWho.length) {
+                display = "none"
+            }
+            return {
+                index: prevState.index + 1,
+                display: display
+            }
         })
-        if (this.state.index === this.state.items.length - 1) {
-            this.setState({ display: 'none' })
-        }
+
     }
 
-    handleStart = e => {
-        e.preventDefault()
+
+
+    render() {
         let output
         output = this.state.guessWho.map((item, index) => {
             return <div key={index}> {item.name} <img src={item.img} /> </div>
         })
-        this.setState({ items: output })
-    }
-
-    render() {
-
         return (
             <>
                 <Link to="/guess"> رجوع</Link>
-                <button onClick={this.handleStart}>يلا نبدأ</button>
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
-                    {this.state.playerCard}
+                    {output[this.state.index]}
                 </div>
             </>
         );

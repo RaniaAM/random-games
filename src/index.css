@@ -4,7 +4,9 @@
 * {
   margin: 0;
 }
-
+/* .container-fluid{
+  background-color: #12517d;
+} */
 body {
   font-family: "Cairo", sans-serif !important;
   background: rgb(126, 219, 255);
@@ -159,66 +161,8 @@ body {
     0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* TEST */
+/* Cards */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-
-/* h1 {
-  margin: 0;
-  font-size: 22px;
-  line-height: 1;
-  color: #423E37;
-} */
-
-/* .page {
-  width: 100vw;
-  height: 100vh;
-  min-height: 700px;
-  overflow: hidden;
-} */
-
-/* .tabs-controls {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 50px 0 100px;
-  list-style-type: none;
-} */
-/* 
-.tabs-controls__link {
-  position: relative;
-  display: block;
-  padding: 16px 32px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #423E37;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.tabs-controls__link:after {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  width: 0;
-  height: 4px;
-  background-color: #423E37;
-  border-radius: 2px;
-  margin: auto;
-  content: "";
-  transition: width 0.4s;
-} */
-/* 
-.tabs-controls__link--active:after {
-  width: 100%;
-} */
-
 .cards-container {
   position: relative;
   z-index: 1;
@@ -263,18 +207,3 @@ body {
   margin-top: 20px;
 }
 
-/* .card.hidden {
-  z-index: 100;
-  background-color: #fff;
-  color: #fff;
-  opacity: 0;
-  transition: color 0.5s, background-color 0.5s, transform 1s, opacity 0.2s 0.4s;
-}
-.card.hidden h1 {
-  color: #fff;
-  transition: color 0.5s;
-} */
-
-/* .card.hidden:nth-of-type(1) {
-  transform: rotate(-16deg) translateX(101%) translateY(-52%) scale(0.9) skewX(3deg) skewY(9deg);
-} */

@@ -1,45 +1,45 @@
 import React, { Component } from 'react'
-// import data from './DataSource'
-import firebase from '.././firebase.js';
 import { Link } from 'react-router-dom'
-
+import UserContext from './UserContext'
 class DareToDo extends Component {
+    static contextType = UserContext;
     state = {
-        index: 0,
+        index: -1,
         display: '',
-        playerCard: null
+        dareToDo: []
     }
-
-    componentDidMount() {
-        const itemsRef = firebase.database().ref('data');
-        itemsRef.on('value', (snapshot) => {
-            let data = snapshot.val();
+    //bring the data from context
+    componentDidUpdate() {
+        let data = this.context;
+        if (this.state.dareToDo.length === 0)
             this.setState({ dareToDo: data.dares.dareToDo.sort(() => Math.random() - 0.5) })
-        });
     }
-
+    //next dare button
     handleClick = e => {
         e.preventDefault()
         this.setState(prevState => {
-            return { index: prevState.index + 1, playerCard: prevState.dareToDo[this.state.index] }
+            let display = prevState.display
+            if (prevState.index === prevState.dareToDo.length) {
+                display = "none"
+            }
+            return {
+                index: prevState.index + 1,
+                display: display
+            }
         })
-        if (this.state.index === this.state.dareToDo.length - 1) {
-            this.setState({ display: 'none' })
-        }
     }
 
     render() {
-
         return (
             <>
                 <Link to="/dares"> رجوع</Link>
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
-                    {this.state.playerCard}
+                    {this.state.dareToDo[this.state.index]}
                 </div>
+              ‏
             </>
         );
     }
 }
-
 export default DareToDo;

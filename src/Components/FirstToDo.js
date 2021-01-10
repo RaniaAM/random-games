@@ -1,49 +1,51 @@
 import React, { Component } from 'react'
-// import data from './DataSource'
-import firebase from '.././firebase.js';
 import { Link } from 'react-router-dom'
+import UserContext from './UserContext'
 
 
 class FirstToDo extends Component {
+    static contextType = UserContext;
+
     state = {
-        index: 0,
+        index: -1,
         display: '',
-        playerCard: null,
-        transform: '',
         thirdClass: "",
-        zIndex: ""
+        zIndex: "",
+        firstToDo: [],
+        descDisplay: ""
 
     }
+    //bring the data from context
+    componentDidUpdate() {
+        let data = this.context;
+        if (data.dares) {
+            if (this.state.firstToDo.length === 0)
+                this.setState({
+                    firstToDo: data.dares.firstToDo.sort(() => Math.random() - 0.5),
+                    display: '',
+                })
 
-    componentDidMount() {
-        const itemsRef = firebase.database().ref('data');
-        itemsRef.on('value', (snapshot) => {
-            let data = snapshot.val();
-            this.setState({ firstToDo: data.dares.firstToDo.sort(() => Math.random() - 0.5) })
-        });
-
+        }
     }
 
+
+    //next dare button
     handleClick = e => {
         e.preventDefault()
-        if (this.state.firstToDo) {
+
+        {
             this.setState(prevState => {
+                let display = prevState.display
+                if (prevState.index === prevState.firstToDo.length) {
+                    display = "none"
+                }
                 return {
-                    index: prevState.index + 1, playerCard: prevState.firstToDo[this.state.index], test: !prevState.test
-
+                    index: prevState.index + 1,
+                    display: display,
+                    thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
+                    zIndex: 9,
+                    descDisplay: "none"
                 }
-            })
-
-            if (this.state.firstToDo.length > 0) {
-                if (this.state.index === this.state.firstToDo.length - 1) {
-                    this.setState({ display: 'none' })
-                }
-            }
-
-            this.setState({
-                thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
-                zIndex: 9
-
             })
             setTimeout(() => {
                 this.setState({
@@ -53,18 +55,25 @@ class FirstToDo extends Component {
             }, 300)
         }
     }
-    render() {
 
+
+    render() {
         return (
             <>
-
-
                 <Link to="/dares"> رجوع</Link>
-
                 <div className="cardContainer" >
-                    <div className="card" >   </div>
-                    <div className={`secound ${this.state.thirdClass}`} style={{ transform: this.state.transform, zIndex: this.state.zIndex }}>
-                        {this.state.playerCard}
+                    <div className="card" >
+                        <p style={{ display: this.state.descDisplay }}>التعليمات</p>
+                        <p style={{ display: this.state.descDisplay }}>
+                            تعتبر طار من عقلي لعبة تساعدك على تحدي لاعبين آخرين لذكر عبارات عشوائية نقولها عادةً لكننا ننساها غالباً عندما نحتاج إلى قولها.
+                        </p>
+                        <p style={{ display: this.state.descDisplay }}>اللاعبون اللذين يتمتعون برموز مماثلة، يتنافسون على تسمية شيء عادي مثل علامة الشامبو التجارية أو الممثل الشهير</p>
+
+
+                    </div>
+                    <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+
+                        {this.state.firstToDo[this.state.index]}
                     </div>
                 </div>
                 <button className="game-button green" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
