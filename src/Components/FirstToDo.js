@@ -10,8 +10,8 @@ class FirstToDo extends Component {
         display: '',
         playerCard: null,
         transform: '',
-        transform2: '',
-        thirdClass: "third"
+        thirdClass: "",
+        zIndex: ""
 
     }
 
@@ -29,7 +29,7 @@ class FirstToDo extends Component {
         if (this.state.firstToDo) {
             this.setState(prevState => {
                 return {
-                    index: prevState.index + 1, playerCard: prevState.firstToDo[this.state.index]
+                    index: prevState.index + 1, playerCard: prevState.firstToDo[this.state.index], test: !prevState.test
 
                 }
             })
@@ -41,29 +41,16 @@ class FirstToDo extends Component {
             }
 
             this.setState({
-                transform: "rotate(-16deg) translateX(101%) translateY(-85%) scale(0.9) skewX(3deg) skewY(9deg)",
-                // thirdClass: "third animate__animated animate__fadeInTopRight"
-            })
-            //  animate__animated animate__fadeOutTopRight
-
-            this.setState({
-                thirdClass: "third"
+                thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
+                zIndex: 9
 
             })
-            this.setState({
-                thirdClass: "third animate__animated animate__fadeInTopRight"
-
-            })
-
-
-            //  else {
-            //     this.setState({
-
-            //         thirdClass: "third "
-
-            //     })
-
-            // }
+            setTimeout(() => {
+                this.setState({
+                    thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
+                    zIndex: 100
+                })
+            }, 300)
         }
     }
     render() {
@@ -74,11 +61,12 @@ class FirstToDo extends Component {
 
                 <Link to="/dares"> رجوع</Link>
 
-
-                <div className="card" >   {this.state.playerCard}   </div>
-                <div className="secound" style={{ transform: this.state.transform }}>
+                <div className="cardContainer" >
+                    <div className="card" >   </div>
+                    <div className={`secound ${this.state.thirdClass}`} style={{ transform: this.state.transform, zIndex: this.state.zIndex }}>
+                        {this.state.playerCard}
+                    </div>
                 </div>
-                <div className={this.state.thirdClass} > </div>
                 <button className="game-button green" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
 
 

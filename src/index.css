@@ -1,16 +1,18 @@
-:root{
-
+:root {
 }
 
-
-*{
+* {
   margin: 0;
 }
 
-body{
-  font-family: 'Cairo', sans-serif !important;
-  background: rgb(126,219,255);
-  background: linear-gradient(90deg, rgba(126,219,255,1) 0%, rgba(205,160,255,1) 100%);
+body {
+  font-family: "Cairo", sans-serif !important;
+  background: rgb(126, 219, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(126, 219, 255, 1) 0%,
+    rgba(205, 160, 255, 1) 100%
+  );
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -19,7 +21,6 @@ body{
   user-select: none; /* Non-prefixed version, currently
   supported by Chrome, Edge, Opera and Firefox */
 }
-
 
 /* Buzz */
 .hvr-buzz {
@@ -33,40 +34,36 @@ body{
   transition-property: transform;
   text-decoration: none;
   color: white !important;
-  background-color: #D9346D;
+  background-color: #d9346d;
   border-radius: 77% 16% 32% 49% / 28% 79% 73% 100%;
   padding: 25px;
   margin-top: 80px;
   font-weight: 700;
- 
 }
 
 .hvr-buzz:hover,
 .hvr-buzz:focus,
 .hvr-buzz:active {
   transform: scale(1.1);
-  color: white  !important;
+  color: white !important;
 }
- 
-.logo-name{
+
+.logo-name {
   padding-top: 30px;
   padding-bottom: 30px;
   color: #61a3dd;
   font-weight: 700;
-
-  
 }
 
-.logo:hover{
+.logo:hover {
   transform: rotate(180deg);
   -webkit-transition-duration: 1s;
- -moz-transition-duration: 1s;
- -o-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-.main{
+.main {
   background-color: blueviolet;
-
 }
 
 .main .logo-name {
@@ -74,16 +71,15 @@ body{
   align-items: center;
   margin-right: 250px;
 }
-.main .return{
-background-color: #61a3dd;
-width: 90px;
-margin-top: 50px;
-text-decoration: none;
-color: black;
-
+.main .return {
+  background-color: #61a3dd;
+  width: 90px;
+  margin-top: 50px;
+  text-decoration: none;
+  color: black;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Carter+One');
+@import url("https://fonts.googleapis.com/css?family=Carter+One");
 
 .game-button {
   position: relative;
@@ -91,28 +87,36 @@ color: black;
   cursor: pointer;
   text-decoration: none !important;
   outline: none !important;
-  font-family: 'Cairo', sans-serif !important;
+  font-family: "Cairo", sans-serif !important;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5em;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   /* text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2, -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2, 0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px  #004a87; */
   border: none;
   margin: 15px 15px 30px;
-  background: repeating-linear-gradient( 45deg, #3ebbf7, #3ebbf7 5px, #45b1f4 5px, #45b1f4 10px);
+  background: repeating-linear-gradient(
+    45deg,
+    #3ebbf7,
+    #3ebbf7 5px,
+    #45b1f4 5px,
+    #45b1f4 10px
+  );
   border-bottom: 3px solid rgba(16, 91, 146, 0.5);
-  border-top: 3px solid rgba(255,255,255,.3);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
   color: #fff !important;
   border-radius: 8px;
   padding: 8px 15px 10px;
   /* box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e, 0 15px 1px 6px rgba(0,0,0,.3); */
 }
 .game-button:hover {
-  top:2px;
-  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0,0,0,.3);
+  top: 2px;
+  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
+    0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e,
+    0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
 .game-button::before {
-  content: '';
+  content: "";
   height: 10%;
   position: absolute;
   width: 40%;
@@ -120,9 +124,9 @@ color: black;
   right: 13%;
   top: -3%;
   border-radius: 99px;
-  }
+}
 .game-button::after {
-  content: '';
+  content: "";
   height: 10%;
   position: absolute;
   width: 5%;
@@ -130,30 +134,33 @@ color: black;
   right: 5%;
   top: -3%;
   border-radius: 99px;
-  }
-
+}
 
 .game-button.green {
-   background: repeating-linear-gradient( 45deg, #54d440, #54d440 5px, #52cc3f 5px, #52cc3f 10px);
-    box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16, 0 15px 1px 6px rgba(0,0,0,.3);
-    border-bottom: 3px solid rgba(40, 117, 29, 0.5);
-    text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628, -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628, 0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
+  background: repeating-linear-gradient(
+    45deg,
+    #54d440,
+    #54d440 5px,
+    #52cc3f 5px,
+    #52cc3f 10px
+  );
+  box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16,
+    0 15px 1px 6px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid rgba(40, 117, 29, 0.5);
+  text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628,
+    -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628,
+    0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
 }
 .game-button.green:hover {
-  top:2px;
-  box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
+  top: 2px;
+  box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
+    0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16,
+    0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
-
-
-
-
-
-
-
 
 /* TEST */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-
 
 /* h1 {
   margin: 0;
@@ -220,12 +227,18 @@ color: black;
   margin: 0 auto;
 }
 
+.card,
+.secound {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+}
 .card {
-position: absolute;
+  position: absolute;
   width: 500px;
   height: 300px;
-  background-color: #EDEBD7;
-  border: 1px solid #423E37;
+  background-color: #edebd7;
+  border: 1px solid #423e37;
   box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   padding: 10px;
@@ -234,13 +247,13 @@ position: absolute;
   margin-top: 10px;
   z-index: 10;
 }
-.secound{
+.secound {
   position: absolute;
   width: 500px;
   height: 300px;
   /* background-color: chartreuse; */
-  background-color: #EDEBD7;
-  border: 1px solid #423E37;
+  background-color: #edebd7;
+  border: 1px solid #423e37;
   box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   padding: 10px;
@@ -248,23 +261,8 @@ position: absolute;
   border-radius: 4px;
   margin-right: 20px;
   margin-top: 20px;
-
 }
 
-.third{
-  width: 500px;
-  height: 300px;
-  background-color: #EDEBD7;
-  /* background-color: brown; */
-  border: 1px solid #423E37;
-  box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  padding: 10px;
-  transition: transform 0.3s, opacity 0.2s;
-  border-radius: 4px;
-  z-index: 9;
-  
-}
 /* .card.hidden {
   z-index: 100;
   background-color: #fff;
@@ -276,7 +274,6 @@ position: absolute;
   color: #fff;
   transition: color 0.5s;
 } */
-
 
 /* .card.hidden:nth-of-type(1) {
   transform: rotate(-16deg) translateX(101%) translateY(-52%) scale(0.9) skewX(3deg) skewY(9deg);
