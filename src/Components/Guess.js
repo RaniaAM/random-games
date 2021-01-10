@@ -7,11 +7,15 @@ function Guess() {
     return (
         <>
             <Link to="/"> رجوع</Link>
-            <br />
-            <Link to="/guessWho">حزر فزر</Link>
-            <br />
-            <Link to="/guessTheThing">حزر الشي</Link>
-            <h1> على طرف لساني</h1>
+            <h1 className="logo-name animate__animated animate-wobble"> على طرف لساني</h1>
+            <div className="row justify-content-center align-items-center‏">
+                <div className="col-3 ">
+                    <Link className="hvr-buzz" to="/guessWho">حزر فزر</Link>
+                </div>
+                <div className="col-3 ">
+                    <Link className="hvr-buzz" to="/guessTheThing">حزر الشي</Link>
+                </div>
+            </div>
         </>
     );
 

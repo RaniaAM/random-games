@@ -9,7 +9,7 @@ function NavList() {
     return (
         <>
             <div className="nav-list ">
-                <h1 className="logo-name">طب وتخير</h1>
+                <h1 className="logo-name animate__animated animate-wobble">طب وتخير</h1>
                 <img src={Purple} className="logo" alt="اللوقو" width="200px" height="200px" />
 
                 <div className="row justify-content-center align-items-center‏">
