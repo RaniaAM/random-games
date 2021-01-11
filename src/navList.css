@@ -1,45 +1,23 @@
-body{
-    background-image: url('background.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  background-image: url("background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* logo */
 .logo-name {
-
-    color: #fff;
-    font-weight: 900;
-  }
-  .logo{
-    /* margin-bottom: 70px !important; */
-
+  color: #fff;
+  font-weight: 900;
 }
 
-.yellow-text{
-    color: #FFD600;
+.yellow-text {
+  color: #ffd600;
 }
 
-
-.info-btn i{
-    font-size: 80px;
-    color: white
+.info-btn i {
+  font-size: 80px;
+  color: white;
 }
-/* main three games buttons */
-/* .main-games{
-    padding: 30px;
-    background-color:#ffae26;
-    color: white !important;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 15px;
-
-}
-
-.main-games:hover{ 
-    animation: 1s ease 0s 1 normal none running rubberBand;
-    transition: all 0.1s ease-in;
-   
-} */
 
 /* game buttons */
 @import url("https://fonts.googleapis.com/css?family=Carter+One");
@@ -103,47 +81,62 @@ body{
 .main-games.green {
   background: repeating-linear-gradient(
     45deg,
-   #ffae26,
-   #ffae26 5px,
-    #FFB539 5px,
-    #FFB539 10px
+    #ffae26,
+    #ffae26 5px,
+    #ffb539 5px,
+    #ffb539 10px
   );
-  box-shadow: 0 6px 0 #FF6D00, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
-    0 10px 0 5px #FF6D00, 0 12px 0 5px #FF6D00, 0 9px 0 5px #FF6D00,
+  box-shadow: 0 6px 0 #ff6d00, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #ff6d00, 0 12px 0 5px #ff6d00, 0 9px 0 5px #ff6d00,
     0 9px 1px 6px rgba(0, 0, 0, 0.3);
-  text-shadow: 2px 2px 1px #FF6D00, -2px 2px 1px #FF6D00, 2px -2px 1px #FF6D00,
-    -2px -2px 1px #FF6D00, 0px 2px 1px #FF6D00, 0px -2px 1px #FF6D00,
-    0px 4px 1px #FF6D00, 2px 4px 1px #FF6D00, -2px 4px 1px #FF6D00;
+  text-shadow: 2px 2px 1px #ff6d00, -2px 2px 1px #ff6d00, 2px -2px 1px #ff6d00,
+    -2px -2px 1px #ff6d00, 0px 2px 1px #ff6d00, 0px -2px 1px #ff6d00,
+    0px 4px 1px #ff6d00, 2px 4px 1px #ff6d00, -2px 4px 1px #ff6d00;
 }
 .main-games.green:hover {
   top: 2px;
-  box-shadow: 0 4px 0 #FF6D00, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
-    0 8px 0 5px #FF6D00, 0 10px 0 5px #FF6D00, 0 13px 0 5px #FF6D00,
+  box-shadow: 0 4px 0 #ff6d00, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
+    0 8px 0 5px #ff6d00, 0 10px 0 5px #ff6d00, 0 13px 0 5px #ff6d00,
     0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
-
-.info-btn{
-    text-align: center;
-    margin-right: 50px;
-    margin-top: 10px;
-    width: 70px;
-    height:70px; 
-    border-radius: 50%;
-    font-size: 15px;
-
+.info-btn {
+  text-align: center;
+  margin-right: 50px;
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 15px;
 }
 .info-btn::after {
-    content: "";
-    height: 0;
-    position: absolute;
-    width: 0;
-    border-radius:0;
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+  border-radius: 0;
+}
+.info-btn::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+  border-radius: 0;
+}
+
+.logo img {
+  width: 410px;
+}
+
+/* Medium Screens */
+@media (min-width: 600px) and (max-width: 900px) {
+  .logo img {
+    width: 410px;
   }
-  .info-btn::before {
-    content: "";
-    height: 0;
-    position: absolute;
-    width: 0;
-    border-radius:0;
+}
+/* Large Screens */
+@media (min-width: 901px) {
+  .logo img {
+    width: 410px;
   }
+}

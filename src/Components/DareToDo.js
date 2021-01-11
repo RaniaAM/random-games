@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from './UserContext'
+import InfoModal from './InfoModal'
 class DareToDo extends Component {
     static contextType = UserContext;
     state = {
@@ -29,15 +30,25 @@ class DareToDo extends Component {
         })
     }
 
+    setModalShow = (toggleShow) => {
+        this.setState({ modalShow: toggleShow })
+    }
+
     render() {
         return (
             <>
+                <div className="row justify-content-start">
+                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>تفضل هنا</button>
+                </div>
                 <Link to="/dares"> رجوع</Link>
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
                     {this.state.dareToDo[this.state.index]}
                 </div>
-              ‏
+                <InfoModal
+                    show={this.state.modalShow}
+                    onHide={() => this.setModalShow(false)}
+                />‏
             </>
         );
     }

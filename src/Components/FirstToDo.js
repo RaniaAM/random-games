@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from './UserContext'
-
+import InfoModal from './InfoModal'
 
 class FirstToDo extends Component {
     static contextType = UserContext;
@@ -12,8 +12,8 @@ class FirstToDo extends Component {
         thirdClass: "",
         zIndex: "",
         firstToDo: [],
-        descDisplay: ""
-
+        descDisplay: "",
+        modalShow: false
     }
     //bring the data from context
     componentDidUpdate() {
@@ -24,7 +24,6 @@ class FirstToDo extends Component {
                     firstToDo: data.dares.firstToDo.sort(() => Math.random() - 0.5),
                     display: '',
                 })
-
         }
     }
 
@@ -32,34 +31,37 @@ class FirstToDo extends Component {
     //next dare button
     handleClick = e => {
         e.preventDefault()
-
-        {
-            this.setState(prevState => {
-                let display = prevState.display
-                if (prevState.index === prevState.firstToDo.length) {
-                    display = "none"
-                }
-                return {
-                    index: prevState.index + 1,
-                    display: display,
-                    thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
-                    zIndex: 9,
-                    descDisplay: "none"
-                }
+        this.setState(prevState => {
+            let display = prevState.display
+            if (prevState.index === prevState.firstToDo.length) {
+                display = "none"
+            }
+            return {
+                index: prevState.index + 1,
+                display: display,
+                thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
+                zIndex: 9,
+                descDisplay: "none"
+            }
+        })
+        setTimeout(() => {
+            this.setState({
+                thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
+                zIndex: 100
             })
-            setTimeout(() => {
-                this.setState({
-                    thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
-                    zIndex: 100
-                })
-            }, 300)
-        }
+        }, 300)
     }
 
+    setModalShow = (toggleShow) => {
+        this.setState({ modalShow: toggleShow })
+    }
 
     render() {
         return (
             <>
+                <div className="row justify-content-start">
+                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>تفضل هنا</button>
+                </div>
                 <Link to="/dares"> رجوع</Link>
                 <div className="cardContainer" >
                     <div className="card" >
@@ -77,7 +79,10 @@ class FirstToDo extends Component {
                     </div>
                 </div>
                 <button className="game-button green" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-
+                <InfoModal
+                    show={this.state.modalShow}
+                    onHide={() => this.setModalShow(false)}
+                />
 
             </>
 
