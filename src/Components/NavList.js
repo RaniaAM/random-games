@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Purple from './Purple.png'
-
+import logo from '../logo.svg'
+import '../navList.css';
 
 // Transform to Function
 function NavList() {
@@ -9,24 +9,25 @@ function NavList() {
     return (
         <>
             <div className="nav-list ">
-                <h1 className="logo-name animate__animated animate-wobble">طب وتخير</h1>
-                <img src={Purple} className="logo" alt="اللوقو" width="200px" height="200px" />
+                <h1 className="logo-name ">على <span className="yellow-text">الطايــــر</span></h1>
+                <img src={logo} className="logo animate__animated animate__bounceInUp" alt="اللوقو" width="450px" />
 
                 <div className="row justify-content-center align-items-center‏">
 
                     <div className="col-3 ">
-                        <Link className="hvr-buzz" to="/dares"> قدها ؟</Link>
+                        <Link className="main-games green hvr-bob" to="/dares"> قدها ؟</Link>
                     </div>
 
                     <div className="col-3">
-                        <Link className="hvr-buzz" to="/guess"> على طرف لساني</Link>
+                        <Link className="main-games  green hvr-bob" to="/guess"> على طرف لساني</Link>
                     </div>
 
                     <div className="col-3">
-                        <Link className="hvr-buzz" to="/wink"> غمزة</Link>
+                        <Link className="main-games  green hvr-bob" to="/wink"> غمزة</Link>
                     </div>
 
                 </div>
+
             </div>
         </>
 

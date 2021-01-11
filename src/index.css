@@ -9,12 +9,8 @@
 } */
 body {
   font-family: "Cairo", sans-serif !important;
-  background: rgb(126, 219, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(126, 219, 255, 1) 0%,
-    rgba(205, 160, 255, 1) 100%
-  );
+  background-color: #fff;
+  
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -24,62 +20,10 @@ body {
   supported by Chrome, Edge, Opera and Firefox */
 }
 
-/* Buzz */
-.hvr-buzz {
-  display: inline-block;
-  vertical-align: middle;
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  transition-duration: 0.3s;
-  transition-property: transform;
-  text-decoration: none;
-  color: white !important;
-  background-color: #d9346d;
-  border-radius: 77% 16% 32% 49% / 28% 79% 73% 100%;
-  padding: 25px;
-  margin-top: 80px;
-  font-weight: 700;
-}
 
-.hvr-buzz:hover,
-.hvr-buzz:focus,
-.hvr-buzz:active {
-  transform: scale(1.1);
-  color: white !important;
-}
 
-.logo-name {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  color: #61a3dd;
-  font-weight: 700;
-}
 
-.logo:hover {
-  transform: rotate(180deg);
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-}
-.main {
-  background-color: blueviolet;
-}
 
-.main .logo-name {
-  background-color: brown;
-  align-items: center;
-  margin-right: 250px;
-}
-.main .return {
-  background-color: #61a3dd;
-  width: 90px;
-  margin-top: 50px;
-  text-decoration: none;
-  color: black;
-}
 
 @import url("https://fonts.googleapis.com/css?family=Carter+One");
 
