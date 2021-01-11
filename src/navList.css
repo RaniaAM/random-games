@@ -6,8 +6,7 @@ body{
 }
 /* logo */
 .logo-name {
-    padding-top: 30px;
-    padding-bottom: 30px;
+
     color: #fff;
     font-weight: 900;
   }
@@ -20,6 +19,11 @@ body{
     color: #FFD600;
 }
 
+
+.info-btn i{
+    font-size: 80px;
+    color: white
+}
 /* main three games buttons */
 /* .main-games{
     padding: 30px;
@@ -117,3 +121,29 @@ body{
     0 8px 0 5px #FF6D00, 0 10px 0 5px #FF6D00, 0 13px 0 5px #FF6D00,
     0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
+
+
+.info-btn{
+    text-align: center;
+    margin-right: 50px;
+    margin-top: 10px;
+    width: 70px;
+    height:70px; 
+    border-radius: 50%;
+    font-size: 15px;
+
+}
+.info-btn::after {
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    border-radius:0;
+  }
+  .info-btn::before {
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    border-radius:0;
+  }
