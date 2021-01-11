@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../logo.svg'
-import '../navList.css';
+import '../NavList.css';
 import InfoModal from './InfoModal'
 
 function NavList() {
@@ -9,11 +9,10 @@ function NavList() {
     return (
         <>
             <div className="row justify-content-start">
-                <button className="info-btn main-games green col-1 text-right" onClick={() => setModalShow(true)}>تفضل هنا</button>
+                <button className="info-btn main-games green col-1 text-right" onClick={() => setModalShow(true)}> اعرفنا اكثر </button>
             </div>
 
             <h1 className="logo-name">على <span className="yellow-text">الطايــــر</span></h1>
-
             <img src={logo} className="logo animate__animated animate__bounceInUp" alt="اللوقو" />
 
             <div className="row justify-content-center align-items-center‏">
