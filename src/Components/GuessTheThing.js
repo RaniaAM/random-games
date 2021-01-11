@@ -10,20 +10,40 @@ class GuessTheThing extends Component {
         items: null,
         index: -1,
         display: '',
-        modalShow: false
+        modalShow: false,
+        time: 0
     }
 
     //bring the data from context
     componentDidUpdate() {
         let data = this.context;
-        if (data.guess) {
-            if (this.state.guessTheThing.length === 0)
-                this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
-        }
+        if (data)
+            if (data.guess) {
+                if (this.state.guessTheThing.length === 0)
+                    this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
+            }
+    }
+    componentDidMount() {
+        // setInterval(() => {
+        //     this.setState(prevState => ({
+        //         time: prevState.time - 1
+        //     }))
+        //     // && this.state.guessTheThing.length != this.state.index
+        //     if (this.state.time === -1) {
+        //         this.handleClick()
+
+        //     }
+        // }
+
+
+        //     , 1000)
+
+
     }
     //next guess button
     handleClick = e => {
-        e.preventDefault()
+        if (e)
+            e.preventDefault()
 
         this.setState(prevState => {
             let display = prevState.display
@@ -32,9 +52,22 @@ class GuessTheThing extends Component {
             }
             return {
                 index: prevState.index + 1,
-                display: display
+                display: display,
+                time: 5
             }
         })
+
+        let interval = setInterval(() => {
+
+            if (this.state.time <= 1 || this.state.index === this.state.guessTheThing.length) {
+                clearInterval(interval);
+            }
+
+            this.setState(prevState => ({
+                time: prevState.time - 1
+            }))
+
+        }, 1000);
 
     }
 
@@ -47,12 +80,15 @@ class GuessTheThing extends Component {
         output = this.state.guessTheThing.map((item, index) => {
             return <div key={index}> {item.name} <p>{item.menu}</p> </div>
         })
+
+
         return (
             <>
                 <div className="row justify-content-start">
                     <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     <Link to="/guess" className="return-btn">تبي ترجع</Link>
                 </div>
+                <p style={{ display: this.state.display }}>{this.state.time}</p>
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
                     {output[this.state.index]}

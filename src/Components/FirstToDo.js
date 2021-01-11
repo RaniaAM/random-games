@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from './UserContext'
 import InfoModal from './InfoModal'
-import '../card.css'
 import logo from '../logo.svg'
+import '../styles/card.css'
 
 class FirstToDo extends Component {
     static contextType = UserContext;
@@ -62,10 +62,11 @@ class FirstToDo extends Component {
         return (
             <>
                 <div className="row justify-content-start">
-                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>تفضل هنا</button>
-                </div>
+                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link className="return-btn col-6" to="/dares"> تبي ترجع؟</Link>
 
-                <Link to="/dares" className="return-btn "> تبي ترجع؟</Link>
+                </div>
+                <h1 className="first-do-title">اول من:</h1>
                 <div className="cardContainer row justify-content-center" >
                     <div className="card" >
                         <p style={{ display: this.state.descDisplay }}>التعليمات</p>
@@ -81,7 +82,7 @@ class FirstToDo extends Component {
 
                     </div>
                 </div>
-                <button className="main-games green hvr-bob" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <InfoModal
                     show={this.state.modalShow}
                     onHide={() => this.setModalShow(false)}

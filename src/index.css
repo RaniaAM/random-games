@@ -17,50 +17,6 @@ body {
   user-select: none;
 }
 
-/* Cards
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-.cards-container {
-  position: relative;
-  z-index: 1;
-  width: 500px;
-  height: calc(100vh - 205px);
-  margin: 0 auto;
-}
-
-.card,
-.secound {
-  position: absolute;
-  top: 40%;
-  right: 30%;
-}
-.card {
-  position: absolute;
-  width: 500px;
-  height: 300px;
-  background-color: #edebd7;
-  border: 1px solid #423e37;
-  box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  padding: 10px;
-  transition: transform 0.3s, opacity 0.2s;
-  margin-right: 10px;
-  margin-top: 10px;
-  z-index: 10;
-}
-.secound {
-  position: absolute;
-  width: 500px;
-  height: 300px;
-  background-color: #edebd7;
-  border: 1px solid #423e37;
-  box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  padding: 10px;
-  transition: transform 0.3s, opacity 0.2s;
-  border-radius: 4px;
-  margin-right: 20px;
-  margin-top: 20px;
-} */
 summary {
   outline: none;
 }
@@ -70,31 +26,9 @@ details {
 
 
 .nav-list{
-  height: 130px;
+  height: 140px;
  
 }
-/* 
-.game-button:hover {
-  top:2px;
-  box-shadow: 0 4px 0 #266B91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517D, 0 10px 0 5px #1A6B9A, 0 13px 0 5px #0C405E, 0 13px 1px 6px rgba(0,0,0,.3);
+.page-container{
+  height: 700px;
 }
-.game-button::before {
-  content: '';
-  height: 10%;
-  position: absolute;
-  width: 40%;
-  background: #fff;
-  right: 13%;
-  top: -3%;
-  border-radius: 99px;
-  }
-.game-button::after {
-  content: '';
-  height: 10%;
-  position: absolute;
-  width: 5%;
-  background: #fff;
-  right: 5%;
-  top: -3%;
-  border-radius: 99px;
-  } */
