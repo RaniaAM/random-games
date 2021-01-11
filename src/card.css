@@ -1,0 +1,80 @@
+
+.card , .secound{
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 300px !important;
+    padding: 30px;
+}
+.card:after ,.secound:after{
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: #48355B 2px dashed;
+  }
+.card p, .secound p{
+color:#48355B ;
+font-weight: 700;
+font-size: 1.5em;
+}
+.card {
+    transition: transform 0.3s, opacity 0.2s;
+    z-index: 10;
+    margin: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 0;
+    /* border: none; */
+    text-align: center;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    margin-right: 10px;
+    margin-top: 10px;
+
+  }
+  .secound {
+    transition: transform 0.3s, opacity 0.2s;
+    margin: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 0;
+    /* border: none; */
+    text-align: center;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    margin-right: 40px;
+    margin-top: 40px;
+
+  }
+
+  .next-btn{
+    display: block !important;
+
+  }
+  .cardContainer{
+      display: block;
+      margin: 0 auto !important;
+      width: 300px;
+      height: 500px;
+      display: flex;
+
+      align-items: center;
+      justify-content: center; 
+      text-align: center;
+      /* background-color: teal; */
+  }
+
+  .card-ship{
+      width: 100px;
+      justify-self: flex-start;
+      margin-left: 200px;
+      margin-top: 191px;
+      z-index: 9;
+  }

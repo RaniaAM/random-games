@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from './UserContext'
 import InfoModal from './InfoModal'
+import '../card.css'
+import logo from '../logo.svg'
 
 class FirstToDo extends Component {
     static contextType = UserContext;
@@ -62,23 +64,24 @@ class FirstToDo extends Component {
                 <div className="row justify-content-start">
                     <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>تفضل هنا</button>
                 </div>
-                <Link to="/dares"> رجوع</Link>
-                <div className="cardContainer" >
+
+                <Link to="/dares" className="return-btn "> تبي ترجع؟</Link>
+                <div className="cardContainer row justify-content-center" >
                     <div className="card" >
                         <p style={{ display: this.state.descDisplay }}>التعليمات</p>
                         <p style={{ display: this.state.descDisplay }}>
-                            تعتبر طار من عقلي لعبة تساعدك على تحدي لاعبين آخرين لذكر عبارات عشوائية نقولها عادةً لكننا ننساها غالباً عندما نحتاج إلى قولها.
-                        </p>
-                        <p style={{ display: this.state.descDisplay }}>اللاعبون اللذين يتمتعون برموز مماثلة، يتنافسون على تسمية شيء عادي مثل علامة الشامبو التجارية أو الممثل الشهير</p>
+                            تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.
 
+                        </p>
 
                     </div>
                     <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                        <p>  {this.state.firstToDo[this.state.index]}</p>
+                        <img src={logo} className="card-ship" alt="اللوقو" />
 
-                        {this.state.firstToDo[this.state.index]}
                     </div>
                 </div>
-                <button className="game-button green" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                <button className="main-games green hvr-bob" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <InfoModal
                     show={this.state.modalShow}
                     onHide={() => this.setModalShow(false)}
