@@ -50,9 +50,9 @@ class GuessTheThing extends Component {
         return (
             <>
                 <div className="row justify-content-start">
-                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>تفضل هنا</button>
+                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link to="/guess" className="return-btn">تبي ترجع</Link>
                 </div>
-                <Link to="/guess"> رجوع</Link>
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
                     {output[this.state.index]}

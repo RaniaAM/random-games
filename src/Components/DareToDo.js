@@ -38,9 +38,9 @@ class DareToDo extends Component {
         return (
             <>
                 <div className="row justify-content-start">
-                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>تفضل هنا</button>
+                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link to="/dares" className="return-btn">تبي ترجع</Link>
                 </div>
-                <Link to="/dares"> رجوع</Link>
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
                     {this.state.dareToDo[this.state.index]}

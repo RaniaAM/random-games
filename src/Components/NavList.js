@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../logo.svg'
-import '../NavList.css';
+import '../styles/navList.css';
 import InfoModal from './InfoModal'
+import '../styles/buttons.css'
+
 
 function NavList() {
     const [modalShow, setModalShow] = React.useState(false);
@@ -18,15 +20,15 @@ function NavList() {
             <div className="row justify-content-center align-items-center‏">
 
                 <div className="col-3 ">
-                    <Link className="main-games green hvr-bob" to="/dares"> قدها ؟</Link>
+                    <Link className="hvr-bob game-buttons" to="/dares"> قدها ؟</Link>
                 </div>
 
                 <div className="col-3">
-                    <Link className="main-games  green hvr-bob" to="/guess"> على طرف لساني</Link>
+                    <Link className="hvr-bob game-buttons" to="/guess"> على طرف لساني</Link>
                 </div>
 
                 <div className="col-3">
-                    <Link className="main-games  green hvr-bob" to="/wink"> غمزة</Link>
+                    <Link className="hvr-bob game-buttons" to="/wink"> غمزة</Link>
                 </div>
 
                 <InfoModal

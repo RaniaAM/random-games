@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import InfoModal from './InfoModal'
-import '../Dares.css'
+import '../styles/buttons.css'
 // Transform to Function
 function Dares() {
     const [modalShow, setModalShow] = React.useState(false);
@@ -10,8 +10,8 @@ function Dares() {
         <>
             <div className="page-container">
                 <div className="row justify-content-start">
-                    <button className="info-btn main-games green col-1 text-right" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn  col-6" to="/"> تبي ترجع؟</Link>
+                    <button className="info-btn col-1 text-right" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link className="return-btn col-6" to="/"> تبي ترجع؟</Link>
                 </div>
                 <div className="row justify-content-center">
 

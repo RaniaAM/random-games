@@ -1,0 +1,32 @@
+body {
+  background-image: url("../background.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* logo */
+.logo-name {
+  color: #fff;
+  font-weight: 900;
+}
+
+.yellow-text {
+  color: #ffd600;
+}
+
+.logo img {
+  width: 410px;
+}
+
+/* Medium Screens */
+@media (min-width: 600px) and (max-width: 900px) {
+  .logo img {
+    width: 410px;
+  }
+}
+/* Large Screens */
+@media (min-width: 901px) {
+  .logo img {
+    width: 410px;
+  }
+}

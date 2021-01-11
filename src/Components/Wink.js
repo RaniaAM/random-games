@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link, LinkNav } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import InfoModal from './InfoModal'
 
 class Wink extends Component {
     state = {
@@ -74,10 +75,16 @@ class Wink extends Component {
         }
     }
 
+    setModalShow = (toggleShow) => {
+        this.setState({ modalShow: toggleShow })
+    }
     render() {
         return (
             <>
-                <Link to="/"> رجوع</Link>
+                <div className="row justify-content-start">
+                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link to="/" className="return-btn">تبي ترجع</Link>
+                </div>
                 <form onSubmit={this.handleSubmit} style={{ display: this.state.display }}>
 
                     {
@@ -101,6 +108,10 @@ class Wink extends Component {
                 <div>
                     {this.state.playerCard}
                 </div>
+                <InfoModal
+                    show={this.state.modalShow}
+                    onHide={() => this.setModalShow(false)}
+                />
             </>
         );
     }
