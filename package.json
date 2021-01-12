@@ -14,7 +14,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4",
-    "homepage": "https://github.com/RaniaAM/random-games"
+    "homepage": "https://github.com/RaniaAM/random-games/"
   },
   "scripts": {
     "start": "react-scripts start",
