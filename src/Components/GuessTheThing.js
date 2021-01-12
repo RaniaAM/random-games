@@ -17,15 +17,20 @@ class GuessTheThing extends Component {
         time: 0,
         timeDisplay: 'none'
     }
-
-    // bring the data from context
-    componentDidUpdate() {
+    setData = () => {
         let data = this.context;
         if (data)
             if (data.guess) {
                 if (this.state.guessTheThing.length === 0)
                     this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
             }
+    }
+    // bring the data from context
+    componentDidUpdate() { //triggered if data changed in the database
+        this.setData()
+    }
+    componentDidMount() { //triggered after the first render and any state changed
+        this.setData()
     }
 
     handleClick = e => {
@@ -84,57 +89,56 @@ class GuessTheThing extends Component {
             )
 
         })
-        // console.log(this.state.guessTheThing.length)
-        // if (this.state.guessTheThing.length === 0)
-        // return (<Spinner />);
-        // else {
-        console.log("guess the thing", this.state.guessTheThing)
-        let outputt = <Spinner />
+        let content
         if (this.state.guessTheThing.length === 0) {
-            output = (
-
-                // return (
-
-                <>
-                    <div className="row justify-content-between">
-                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                        <Link to="/guess" className="return-btn">تبي ترجع</Link>
-                    </div>
-
-
-                    <h1 className="logo-name">حزر الشيء :</h1>
-                    <div className="cardContainer row justify-content-center" >
-                        <div className="card guess-the-thing-text" >
-                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                            <p style={{ display: this.state.descDisplay }}>
-                                بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
-                        </p>
-
-                        </div>
-                        <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                            {/* timer */}
-                            <div class="countdown" style={{ display: this.state.timeDisplay }}>
-                                <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
-                                <svg>
-                                    <circle r="18" cx="20" cy="20"></circle>
-                                </svg>
-                            </div>
-                            {output[this.state.index]}
-                            <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
-
-                        </div>
-                    </div>
-                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-
-                    <InfoModal
-                        show={this.state.modalShow}
-                        onHide={() => this.setModalShow(false)}
-                    />
-                </>
-
+            content = (
+                <Spinner />
             )
         }
-        return <div >{outputt}</div>
+        else {
+            content =
+                (
+                    <>
+                        <div className="row justify-content-between">
+                            <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                            <Link to="/guess" className="return-btn">تبي ترجع</Link>
+                        </div>
+
+
+                        <h1 className="logo-name">حزر الشيء :</h1>
+                        <div className="cardContainer row justify-content-center" >
+                            <div className="card guess-the-thing-text" >
+                                <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                                <p style={{ display: this.state.descDisplay }}>
+                                    بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
+                </p>
+
+                            </div>
+                            <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                                {/* timer */}
+                                <div class="countdown" style={{ display: this.state.timeDisplay }}>
+                                    <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
+                                    <svg>
+                                        <circle r="18" cx="20" cy="20"></circle>
+                                    </svg>
+                                </div>
+                                {output[this.state.index]}
+                                <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+
+                            </div>
+                        </div>
+                        <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+
+                        <InfoModal
+                            show={this.state.modalShow}
+                            onHide={() => this.setModalShow(false)}
+                        />
+                    </>
+
+                )
+        }
+
+        return content
     }
 
 }

@@ -75,6 +75,14 @@ function InfoModal(props) {
                     </ul>
 
                 </details>
+                <hr />
+                {/* <center>
+                    <p><b>مطورين الموقع: </b></p>
+                    <p> نوف الشهري &nbsp; &nbsp; نوره الجلعود &nbsp; &nbsp; رانية المعطاني</p>
+                    <p> <a href="mailto:NoufAllshehri@gmail.com"><i class="fas fa-envelope" style={{ color: "black" }}></i></a> <a href=""><i class="fab fa-linkedin" style={{ color: "black" }}></i></a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="mailto:Nouraaljaloud0@gmail.com"><i class="fas fa-envelope" style={{ color: "black" }}></i></a> <a href=""><i class="fab fa-linkedin" style={{ color: "black" }}></i></a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="mailto:rania.3zizm@gmail.com"><i class="fas fa-envelope" style={{ color: "black" }}></i></a> <a href=""><i class="fab fa-linkedin" style={{ color: "black" }}></i></a></p>
+                </center> */}
             </Modal.Body>
         </Modal>
     );
