@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import InfoModal from './InfoModal'
 import '../styles/card.css'
 import logo from '../logo.svg'
+import Spinner from './Spinner';
 
 class GuessWho extends Component {
     static contextType = UserContext;
@@ -17,31 +18,24 @@ class GuessWho extends Component {
         modalShow: false
     }
 
-    //bring the data from context
-    componentDidUpdate() {
+
+    setData = () => {
         let data = this.context;
-        if (data.guess) {
+        if (data) {
             if (this.state.guessWho.length === 0)
                 this.setState({ guessWho: data.guess.guessWho.sort(() => Math.random() - 0.5) })
         }
     }
 
-    //next guess button
-    // handleClick = e => {
-    //     e.preventDefault()
+    //bring the data from context
+    componentDidUpdate() { //triggered if data changed in the database
+        this.setData()
+    }
 
-    //     this.setState(prevState => {
-    //         let display = prevState.display
-    //         if (prevState.index === prevState.guessWho.length) {
-    //             display = "none"
-    //         }
-    //         return {
-    //             index: prevState.index + 1,
-    //             display: display
-    //         }
-    //     })
+    componentDidMount() {//triggered after the first render and any state changed
+        this.setData()
+    }
 
-    // }
     handleClick = e => {
         e.preventDefault()
         this.setState(prevState => {
@@ -79,56 +73,51 @@ class GuessWho extends Component {
                 <div>{item.name}</div>
             </div>
         })
-        return (
-            <>
 
-                <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn" to="/guess"> تبي ترجع؟</Link>
-                </div>
 
-                <h1 className="first-do-title">حزر فزر :</h1>
-                <div className="cardContainer row justify-content-center" >
-                    <div className="card" >
-                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                        <p style={{ display: this.state.descDisplay }}>
-                            مافيها شروط بس حاول تلمح لخويك او للباقين مين شفت وخلهم يجيبونها صح.
+        let content
+        if (this.state.guessWho.length === 0) {
+            content = (
+                <Spinner />
+            )
+        }
+        else {
+            content =
+                (<>
+
+                    <div className="row justify-content-between">
+                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                        <Link className="return-btn" to="/guess"> تبي ترجع؟</Link>
+                    </div>
+
+                    <h1 className="first-do-title">حزر فزر :</h1>
+                    <div className="cardContainer row justify-content-center" >
+                        <div className="card" >
+                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                            <p style={{ display: this.state.descDisplay }}>
+                                مافيها شروط بس حاول تلمح لخويك او للباقين مين شفت وخلهم يجيبونها صح.
 
                         </p>
 
+                        </div>
+                        <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                            <p>  {output[this.state.index]} </p>
+
+                            <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+
+                        </div>
                     </div>
-                    <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                        <p>  {output[this.state.index]} </p>
+                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
 
-                        <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+                    <InfoModal
+                        show={this.state.modalShow}
+                        onHide={() => this.setModalShow(false)}
+                    />
+                </>
+                )
+        }
 
-                    </div>
-                </div>
-                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-
-                {/* <div className="row justify-content-start">
-                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link to="/guess" className="return-btn">تبي ترجع</Link>
-                </div>
-
-                <h1 className="first-do-title"> حزر فزر</h1>
-                <div className="cardContainer row justify-content-center" >
-                    <div className="card ">
-                        {output[this.state.index]}
-                        <img src={logo} className="card-ship" alt="اللوقو" />
-                    </div>
-
-                </div>
-                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>
-                    التالي
-                </button> */}
-
-                <InfoModal
-                    show={this.state.modalShow}
-                    onHide={() => this.setModalShow(false)}
-                />
-            </>
-        );
+        return content
     }
 }
 

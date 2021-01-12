@@ -19,12 +19,12 @@ class GuessTheThing extends Component {
     }
     setData = () => {
         let data = this.context;
-        if (data)
-            if (data.guess) {
-                if (this.state.guessTheThing.length === 0)
-                    this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
-            }
+        if (data) {
+            if (this.state.guessTheThing.length === 0)
+                this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
+        }
     }
+
     // bring the data from context
     componentDidUpdate() { //triggered if data changed in the database
         this.setData()

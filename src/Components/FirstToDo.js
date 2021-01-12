@@ -4,6 +4,7 @@ import UserContext from './UserContext'
 import InfoModal from './InfoModal'
 import logo from '../logo.svg'
 import '../styles/card.css'
+import Spinner from './Spinner';
 
 class FirstToDo extends Component {
     static contextType = UserContext;
@@ -17,16 +18,24 @@ class FirstToDo extends Component {
         descDisplay: "",
         modalShow: false
     }
-    //bring the data from context
-    componentDidUpdate() {
+    setData = () => {
         let data = this.context;
-        if (data.dares) {
+        if (data) {
             if (this.state.firstToDo.length === 0)
                 this.setState({
                     firstToDo: data.dares.firstToDo.sort(() => Math.random() - 0.5),
                     display: '',
                 })
         }
+    }
+
+    // bring the data from context
+    componentDidUpdate() { //triggered if data changed in the database
+        this.setData()
+    }
+
+    componentDidMount() { //triggered after the first render and any state changed
+        this.setData()
     }
 
 
@@ -59,38 +68,49 @@ class FirstToDo extends Component {
     }
 
     render() {
-        return (
-            <>
-                <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
+        let content
+        if (this.state.firstToDo.length === 0) {
+            content = (
+                <Spinner />
+            )
+        }
+        else {
+            content =
 
-                </div>
-                <h1 className="first-do-title">اول من:</h1>
-                <div className="cardContainer row justify-content-center" >
-                    <div className="card" >
-                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                        <p style={{ display: this.state.descDisplay }}>
-                            تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.
+                (<>
+                    <div className="row justify-content-between">
+                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                        <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
+
+                    </div>
+                    <h1 className="first-do-title">اول من:</h1>
+                    <div className="cardContainer row justify-content-center" >
+                        <div className="card" >
+                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                            <p style={{ display: this.state.descDisplay }}>
+                                تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.
 
                         </p>
 
+                        </div>
+                        <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                            <p>  {this.state.firstToDo[this.state.index]}</p>
+                            <img src={logo} className="card-ship" alt="اللوقو" />
+
+                        </div>
                     </div>
-                    <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                        <p>  {this.state.firstToDo[this.state.index]}</p>
-                        <img src={logo} className="card-ship" alt="اللوقو" />
+                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                    <InfoModal
+                        show={this.state.modalShow}
+                        onHide={() => this.setModalShow(false)}
+                    />
 
-                    </div>
-                </div>
-                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-                <InfoModal
-                    show={this.state.modalShow}
-                    onHide={() => this.setModalShow(false)}
-                />
+                </>
 
-            </>
+                )
+        }
 
-        );
+        return content
     }
 }
 

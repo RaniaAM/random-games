@@ -4,6 +4,7 @@ import UserContext from './UserContext'
 import InfoModal from './InfoModal'
 import logo from '../logo.svg'
 import '../styles/card.css'
+import Spinner from './Spinner';
 
 class DareToDo extends Component {
     static contextType = UserContext;
@@ -16,16 +17,23 @@ class DareToDo extends Component {
         descDisplay: "",
         modalShow: false
     }
-    //bring the data from context
-    componentDidUpdate() {
+    setData = () => {
         let data = this.context;
-        if (data.dares) {
+        if (data) {
             if (this.state.dareToDo.length === 0)
                 this.setState({
                     dareToDo: data.dares.dareToDo.sort(() => Math.random() - 0.5),
                     display: '',
                 })
         }
+    }
+
+    //bring the data from context
+    componentDidUpdate() {//triggered if data changed in the database
+        this.setData()
+    }
+    componentDidMount() { //triggered after the first render and any state changed
+        this.setData()
     }
     //next dare button
     handleClick = e => {
@@ -56,49 +64,47 @@ class DareToDo extends Component {
     }
 
     render() {
-        return (
-            <>
-                <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
-                </div>
+        let content
+        if (this.state.dareToDo.length === 0) {
+            content = (
+                <Spinner />
+            )
+        }
+        else {
+            content =
+                (<>
+                    <div className="row justify-content-between">
+                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                        <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
+                    </div>
 
-                <h1 className="first-do-title">اتحداك تصمل</h1>
-                <div className="cardContainer row justify-content-center" >
-                    <div className="card" >
-                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                        <p style={{ display: this.state.descDisplay }}>
-                            تنفع لمجموعة اشخاص تمر التحديات عليهم واحد واحد والكل مجبور ينفذ ولا ترا بيطلع من اللعبة وراح يتم تدشين لقب الكفو على الصامل.
+                    <h1 className="first-do-title">اتحداك تصمل</h1>
+                    <div className="cardContainer row justify-content-center" >
+                        <div className="card" >
+                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                            <p style={{ display: this.state.descDisplay }}>
+                                تنفع لمجموعة اشخاص تمر التحديات عليهم واحد واحد والكل مجبور ينفذ ولا ترا بيطلع من اللعبة وراح يتم تدشين لقب الكفو على الصامل.
                         </p>
 
+                        </div>
+                        <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                            <p>   {this.state.dareToDo[this.state.index]}</p>
+                            <img src={logo} className="card-ship" alt="اللوقو" />
+
+                        </div>
                     </div>
-                    <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                        <p>   {this.state.dareToDo[this.state.index]}</p>
-                        <img src={logo} className="card-ship" alt="اللوقو" />
-
-                    </div>
-                </div>
-                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
 
 
+                    <InfoModal
+                        show={this.state.modalShow}
+                        onHide={() => this.setModalShow(false)}
+                    />‏
+                </>
+                )
+        }
 
-
-                {/* <div className="row justify-content-start">
-                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link to="/dares" className="return-btn">تبي ترجع</Link>
-                </div>
-                <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-                <div>
-                    {this.state.dareToDo[this.state.index]}
-                </div> */}
-
-
-                <InfoModal
-                    show={this.state.modalShow}
-                    onHide={() => this.setModalShow(false)}
-                />‏
-            </>
-        );
+        return content
     }
 }
 export default DareToDo;
