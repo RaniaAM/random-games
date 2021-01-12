@@ -76,13 +76,27 @@ function InfoModal(props) {
 
                 </details>
                 <hr />
-                {/* <center>
-                    <p><b>مطورين الموقع: </b></p>
-                    <p> نوف الشهري &nbsp; &nbsp; نوره الجلعود &nbsp; &nbsp; رانية المعطاني</p>
-                    <p> <a href="mailto:NoufAllshehri@gmail.com"><i class="fas fa-envelope" style={{ color: "black" }}></i></a> <a href=""><i class="fab fa-linkedin" style={{ color: "black" }}></i></a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="mailto:Nouraaljaloud0@gmail.com"><i class="fas fa-envelope" style={{ color: "black" }}></i></a> <a href=""><i class="fab fa-linkedin" style={{ color: "black" }}></i></a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="mailto:rania.3zizm@gmail.com"><i class="fas fa-envelope" style={{ color: "black" }}></i></a> <a href=""><i class="fab fa-linkedin" style={{ color: "black" }}></i></a></p>
-                </center> */}
+                <p><b>مطورين الموقع: </b></p>
+                {/* <div className="container d-flex"> */}
+                <div className="d-flex justify-content-around">
+                    <span>نـوف الـشـهـري</span>
+                    <span>نـوره الـجـلـعـود</span>
+                    <span>رانيـة الـمـعـطـانـي</span>
+                </div>
+                <div className="d-flex justify-content-around developers">
+                    <span>
+                        <a href="mailto:NoufAllshehri@gmail.com" className="fas fa-envelope fa-lg"></a>
+                        <a href="https://www.linkedin.com/in/noufallshehri/" target="_blank" className="fab fa-linkedin fa-lg"></a>
+                    </span>
+                    <span>
+                        <a href="mailto:Nouraaljaloud0@gmail.com" className="fas fa-envelope fa-lg"></a>
+                        <a href="https://www.linkedin.com/in/nouraaljaloud/" target="_blank" className="fab fa-linkedin fa-lg"></a>
+                    </span>
+                    <span>
+                        <a href="mailto:rania.3zizm@gmail.com" className="fas fa-envelope fa-lg"></a>
+                        <a href="http://www.linkedin.com/in/raniaalmetani" target="_blank" className="fab fa-linkedin fa-lg"></a>
+                    </span>
+                </div>
             </Modal.Body>
         </Modal>
     );
