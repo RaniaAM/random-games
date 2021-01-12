@@ -100,8 +100,8 @@ class GuessTheThing extends Component {
                 (
                     <>
                         <div className="row justify-content-between">
-                            <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                             <Link to="/guess" className="return-btn">تبي ترجع</Link>
+                            <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                         </div>
 
 

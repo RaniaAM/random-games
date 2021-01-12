@@ -79,8 +79,8 @@ class FirstToDo extends Component {
 
                 (<>
                     <div className="row justify-content-between">
-                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                         <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
+                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
 
                     </div>
                     <h1 className="first-do-title">اول من:</h1>

@@ -10,8 +10,8 @@ function NavList() {
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
-            <div className="row">
-                <button className="info-btn col-1 text-right" onClick={() => setModalShow(true)}> اعرفنا اكثر </button>
+            <div className="d-flex justify-content-end ">
+                <button className="info-btn" onClick={() => setModalShow(true)}> اعرفنا اكثر </button>
             </div>
 
             <h1 className="logo-name">على <span className="yellow-text">الطايــــر</span></h1>

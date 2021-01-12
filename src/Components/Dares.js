@@ -12,8 +12,8 @@ function Dares() {
         <>
             <div className="page-container">
                 <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
                     <Link className="return-btn" to="/"> تبي ترجع؟</Link>
+                    <button className="info-btn" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
                 </div>
                 <div className="row justify-content-center">
 

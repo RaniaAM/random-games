@@ -87,8 +87,8 @@ class Wink extends Component {
         return (
             <div className="page-container">
                 <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     <Link to="/" className="return-btn">تبي ترجع</Link>
+                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                 </div>
                 {this.state.showForm ?
                     <form onSubmit={this.handleSubmit}>

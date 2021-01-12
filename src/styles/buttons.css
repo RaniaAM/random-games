@@ -1,24 +1,21 @@
 /* game buttons */
 
 :root {
-  --retun-btn-background: repeating-linear-gradient(
-    45deg,
-    #3ebbf7,
-    #3ebbf7 5px,
-    #45b1f4 5px,
-    #45b1f4 10px
-  );
-  
-  --info-btn-background: repeating-linear-gradient(
+  --return-btn-background: repeating-linear-gradient(
     45deg,
     #fc9f00,
     #fc9f00 5px,
     #fcac23 5px,
     #fcac23 10px
   );
-  --info-btn-shadow: 0 6px 0 #fd760f, 0 8px 1px 1px rgba(15, 1, 1, 0.3),
-    0 10px 0 5px #ff6a00, 0 12px 0 5px #fc9140, 0 15px 0 5px #ff6f00,
-    0 15px 1px 6px rgba(0, 0, 0, 0.3);
+
+  --info-btn-background: repeating-linear-gradient(
+    45deg,
+    #3ebbf7,
+    #3ebbf7 5px,
+    #45b1f4 5px,
+    #45b1f4 10px
+  );
 }
 
 .info-btn,
@@ -41,8 +38,8 @@
   border-radius: 8px;
 }
 
-.return-btn {
-  background: var(--retun-btn-background);
+.info-btn {
+  background: var(--info-btn-background);
   box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
     0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e,
     0 15px 1px 6px rgba(0, 0, 0, 0.3);
@@ -60,9 +57,9 @@
   font-size: 1em;
 }
 
-.info-btn,
+.return-btn,
 .game-buttons {
-  background: var(--info-btn-background);
+  background: var(--return-btn-background);
   box-shadow: 0 6px 0 #fd760f, 0 8px 1px 1px rgba(15, 1, 1, 0.3),
     0 10px 0 5px #ff6a00, 0 12px 0 5px #fc9140, 0 15px 0 5px #ff6f00,
     0 15px 1px 6px rgba(0, 0, 0, 0.3);
@@ -78,13 +75,13 @@
   top: 2px;
 }
 
-.info-btn:hover {
+.return-btn:hover {
   box-shadow: 0 4px 0 #fd760f, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
     0 8px 0 5px #ff6a00, 0 10px 0 5px #fc9140, 0 13px 0 5px #ff6f00,
     0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
-.return-btn:hover {
+.info-btn:hover {
   box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
     0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e,
     0 13px 1px 6px rgba(0, 0, 0, 0.3);

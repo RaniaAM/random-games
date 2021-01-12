@@ -86,8 +86,8 @@ class GuessWho extends Component {
                 (<>
 
                     <div className="row justify-content-between">
-                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                         <Link className="return-btn" to="/guess"> تبي ترجع؟</Link>
+                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     </div>
 
                     <h1 className="first-do-title">حزر فزر :</h1>

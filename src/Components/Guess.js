@@ -11,8 +11,8 @@ function Guess() {
             <div className="page-container">
 
                 <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
                     <Link className="return-btn" to="/"> تبي ترجع؟</Link>
+                    <button className="info-btn" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
                 </div>
                 <h1 className="logo-name animate__animated animate-wobble"> على طرف لساني</h1>
                 <div className="nav-list" ></div>
