@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import UserContext from './UserContext'
 import { Link } from 'react-router-dom'
 import InfoModal from './InfoModal'
+import '../styles/card.css'
+import logo from '../logo.svg'
 
 class GuessTheThing extends Component {
     static contextType = UserContext;
@@ -26,8 +28,7 @@ class GuessTheThing extends Component {
     }
 
     handleClick = e => {
-        if (e)
-            e.preventDefault()
+        e.preventDefault()
 
         this.setState(prevState => {
             let display = prevState.display
@@ -38,7 +39,10 @@ class GuessTheThing extends Component {
                 index: prevState.index + 1,
                 display: display,
                 time: 15,
-                timeDisplay: ''
+                timeDisplay: '',
+                thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
+                zIndex: 9,
+                descDisplay: "none"
             }
         })
 
@@ -57,6 +61,12 @@ class GuessTheThing extends Component {
 
         }, 1000);
 
+        setTimeout(() => {
+            this.setState({
+                thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
+                zIndex: 100
+            })
+        }, 300)
     }
 
     setModalShow = (toggleShow) => {
@@ -66,7 +76,7 @@ class GuessTheThing extends Component {
     render() {
         let output
         output = this.state.guessTheThing.map((item, index) => {
-            return <div key={index}> {item.name} <p>{item.menu}</p> </div>
+            return <p key={index}>  {item.name} {item.menu}</p>
         })
 
 
@@ -76,18 +86,32 @@ class GuessTheThing extends Component {
                     <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     <Link to="/guess" className="return-btn">تبي ترجع</Link>
                 </div>
-                {/* timer */}
-                <div class="countdown" style={{ display: this.state.timeDisplay }}>
-                    <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
-                    <svg>
-                        <circle r="18" cx="20" cy="20"></circle>
-                    </svg>
+
+
+                <h1 className="first-do-title">حزر الشيء :</h1>
+                <div className="cardContainer row justify-content-center" >
+                    <div className="card guess-the-thing-text" >
+                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                        <p style={{ display: this.state.descDisplay }}>
+                            بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
+                        </p>
+
+                    </div>
+                    <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                        {/* timer */}
+                        <div class="countdown" style={{ display: this.state.timeDisplay }}>
+                            <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
+                            <svg>
+                                <circle r="18" cx="20" cy="20"></circle>
+                            </svg>
+                        </div>
+                        {output[this.state.index]}
+                        <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+
+                    </div>
                 </div>
-                {/* next button */}
-                <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-                <div>
-                    {output[this.state.index]}
-                </div>
+                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+
                 <InfoModal
                     show={this.state.modalShow}
                     onHide={() => this.setModalShow(false)}
