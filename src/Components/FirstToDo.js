@@ -69,7 +69,7 @@ class FirstToDo extends Component {
                 <h1 className="first-do-title">اول من:</h1>
                 <div className="cardContainer row justify-content-center" >
                     <div className="card" >
-                        <p style={{ display: this.state.descDisplay }}>التعليمات</p>
+                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
                         <p style={{ display: this.state.descDisplay }}>
                             تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.
 

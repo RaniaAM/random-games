@@ -11,7 +11,8 @@ class GuessTheThing extends Component {
         index: -1,
         display: '',
         modalShow: false,
-        time: 0
+        time: 0,
+        timeDisplay: 'none'
     }
 
     //bring the data from context
@@ -23,24 +24,7 @@ class GuessTheThing extends Component {
                     this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
             }
     }
-    componentDidMount() {
-        // setInterval(() => {
-        //     this.setState(prevState => ({
-        //         time: prevState.time - 1
-        //     }))
-        //     // && this.state.guessTheThing.length != this.state.index
-        //     if (this.state.time === -1) {
-        //         this.handleClick()
 
-        //     }
-        // }
-
-
-        //     , 1000)
-
-
-    }
-    //next guess button
     handleClick = e => {
         if (e)
             e.preventDefault()
@@ -53,14 +37,18 @@ class GuessTheThing extends Component {
             return {
                 index: prevState.index + 1,
                 display: display,
-                time: 5
+                time: 15,
+                timeDisplay: ''
             }
         })
 
         let interval = setInterval(() => {
 
-            if (this.state.time <= 1 || this.state.index === this.state.guessTheThing.length) {
+            if (this.state.time <= 0 || this.state.index === this.state.guessTheThing.length) {
                 clearInterval(interval);
+                this.setState({
+                    timeDisplay: 'none'
+                })
             }
 
             this.setState(prevState => ({
@@ -88,7 +76,14 @@ class GuessTheThing extends Component {
                     <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     <Link to="/guess" className="return-btn">تبي ترجع</Link>
                 </div>
-                <p style={{ display: this.state.display }}>{this.state.time}</p>
+                {/* timer */}
+                <div class="countdown" style={{ display: this.state.timeDisplay }}>
+                    <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
+                    <svg>
+                        <circle r="18" cx="20" cy="20"></circle>
+                    </svg>
+                </div>
+                {/* next button */}
                 <button onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                 <div>
                     {output[this.state.index]}
