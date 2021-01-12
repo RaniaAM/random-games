@@ -84,11 +84,16 @@ class GuessTheThing extends Component {
             )
 
         })
+        // console.log(this.state.guessTheThing.length)
+        // if (this.state.guessTheThing.length === 0)
+        // return (<Spinner />);
+        // else {
+        console.log("guess the thing", this.state.guessTheThing)
+        let outputt = <Spinner />
+        if (this.state.guessTheThing.length === 0) {
+            output = (
 
-        if (this.state.guessTheThing.length === 0)
-            return (<Spinner />);
-        else {
-            return (
+                // return (
 
                 <>
                     <div className="row justify-content-between">
@@ -126,8 +131,10 @@ class GuessTheThing extends Component {
                         onHide={() => this.setModalShow(false)}
                     />
                 </>
-            );
+
+            )
         }
+        return <div >{outputt}</div>
     }
 
 }
