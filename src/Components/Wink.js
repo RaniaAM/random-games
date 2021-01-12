@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import InfoModal from './InfoModal'
+import '../styles/buttons.css'
 
 class Wink extends Component {
     state = {
@@ -81,8 +82,8 @@ class Wink extends Component {
     render() {
         return (
             <>
-                <div className="row justify-content-start">
-                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                <div className="row justify-content-between">
+                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     <Link to="/" className="return-btn">تبي ترجع</Link>
                 </div>
                 <form onSubmit={this.handleSubmit} style={{ display: this.state.display }}>
@@ -91,14 +92,14 @@ class Wink extends Component {
                         this.state.names.map((name, index) => {
                             return (
                                 <div key={index}>
-                                    <input type="text" value={name} onChange={(e) => this.handleChange(e, index)}></input>
+                                    <input type="text" value={name} onChange={(e) => this.handleChange(e, index)} placeholder="اسم اللاعب"></input>
                                 </div>
                             )
                         })
                     }
 
 
-                    <button onClick={(e) => this.addPlayer(e)}>لاعب جديد</button>
+                    <button onClick={(e) => this.addPlayer(e)}>لاعب جديد؟</button>
                     <button type="submit">يلا نلعب</button>
 
                 </form>
