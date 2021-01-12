@@ -29,17 +29,6 @@ class DareToDo extends Component {
     }
     //next dare button
     handleClick = e => {
-        // e.preventDefault()
-        // this.setState(prevState => {
-        //     let display = prevState.display
-        //     if (prevState.index === prevState.dareToDo.length) {
-        //         display = "none"
-        //     }
-        //     return {
-        //         index: prevState.index + 1,
-        //         display: display
-        //     }
-        // })
         e.preventDefault()
         this.setState(prevState => {
             let display = prevState.display
@@ -62,8 +51,6 @@ class DareToDo extends Component {
         }, 300)
     }
 
-
-
     setModalShow = (toggleShow) => {
         this.setState({ modalShow: toggleShow })
     }
@@ -71,12 +58,9 @@ class DareToDo extends Component {
     render() {
         return (
             <>
-
-
-                <div className="row justify-content-start">
-                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn col-6" to="/dares"> تبي ترجع؟</Link>
-
+                <div className="row justify-content-between">
+                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
                 </div>
 
                 <h1 className="first-do-title">اتحداك تصمل</h1>
@@ -85,7 +69,6 @@ class DareToDo extends Component {
                         <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
                         <p style={{ display: this.state.descDisplay }}>
                             تنفع لمجموعة اشخاص تمر التحديات عليهم واحد واحد والكل مجبور ينفذ ولا ترا بيطلع من اللعبة وراح يتم تدشين لقب الكفو على الصامل.
-
                         </p>
 
                     </div>

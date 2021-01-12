@@ -10,9 +10,9 @@ function Guess() {
         <>
             <div className="page-container">
 
-                <div className="row justify-content-start">
-                    <button className="info-btn col-1 text-right" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn col-6" to="/"> تبي ترجع؟</Link>
+                <div className="row justify-content-between">
+                    <button className="info-btn" onClick={() => setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link className="return-btn" to="/"> تبي ترجع؟</Link>
                 </div>
                 <h1 className="logo-name animate__animated animate-wobble"> على طرف لساني</h1>
                 <div className="nav-list" ></div>

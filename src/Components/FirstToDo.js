@@ -61,9 +61,9 @@ class FirstToDo extends Component {
     render() {
         return (
             <>
-                <div className="row justify-content-start">
-                    <button className="info-btn main-games green col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link className="return-btn col-6" to="/dares"> تبي ترجع؟</Link>
+                <div className="row justify-content-between">
+                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                    <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
 
                 </div>
                 <h1 className="first-do-title">اول من:</h1>

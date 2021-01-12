@@ -72,8 +72,8 @@ class GuessTheThing extends Component {
 
         return (
             <>
-                <div className="row justify-content-start">
-                    <button className="info-btn col-1 text-right" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                <div className="row justify-content-between">
+                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     <Link to="/guess" className="return-btn">تبي ترجع</Link>
                 </div>
                 {/* timer */}
