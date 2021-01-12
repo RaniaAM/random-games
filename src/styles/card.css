@@ -28,7 +28,13 @@
 .secound p {
   width: 500px !important;
   padding-top: 50%;
-}
+ }
+ .card ul li{
+  color: #48355b;
+  font-weight: 600;
+  font-size: 1em;
+ }
+ 
 
 .card {
   transition: transform 0.3s, opacity 0.2s;

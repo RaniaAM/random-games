@@ -28,7 +28,7 @@ function Dares() {
                     </div>
 
                     <div className="col-3 ">
-                        <Link className="hvr-bob game-buttons" to="/dareToDo">اتحداك تسويها</Link>
+                        <Link className="hvr-bob game-buttons" to="/dareToDo">اتحداك تصمل</Link>
                     </div>
                     <div className="nav-list" ></div>
                 </div>

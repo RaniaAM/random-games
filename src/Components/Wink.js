@@ -117,9 +117,15 @@ class Wink extends Component {
                         <div className="cardContainer row justify-content-center">
                             <div className="card">
                                 <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                                <p style={{ display: this.state.descDisplay }}>
-                                    تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.
-                        </p>
+
+
+                                <ul style={{ display: this.state.descDisplay }}>
+
+                                    <li>  <b>الشايب :</b> حاول تقفط الولد قبل لا يغمز لكل البنات</li>
+                                    <li><b>الولد :</b>  حاول ماتبين انك ولد عشان مايقفطك الشايب وتقدر تختم البنات بغمزتك</li>
+                                    <li><b>البنت :</b> اذا غمز لك الولد لاتبينين مين هو بس قولي انغمز لي</li>
+                                </ul>
+
 
                             </div>
                             <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }} onClick={this.handleFlip}>

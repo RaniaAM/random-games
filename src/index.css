@@ -58,29 +58,30 @@ form {
 
 /* timer */
 .countdown {
-  position: relative;
+  /* position: relative;
   margin: auto;
   margin-top: 100px;
   height: 40px;
   width: 40px;
-  text-align: center;
+  text-align: center; */
+
 }
-.countdown-number p {
-  color: black;
-}
+
 .countdown-number {
-  color: rgb(0, 0, 0);
+  color: #48355b;
   display: inline-block;
   line-height: 40px;
+  font-size: 12px !important;
 }
 
 svg {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 70;
+  right: 130px;
   width: 40px;
   height: 40px;
   transform: rotateY(-180deg) rotateZ(-90deg);
+  
 }
 
 svg circle {
@@ -88,7 +89,7 @@ svg circle {
   stroke-dashoffset: 0px;
   stroke-linecap: round;
   stroke-width: 2px;
-  stroke: rgb(0, 0, 0);
+  stroke:#48355b;
   fill: none;
   animation: countdown 16s linear infinite forwards;
 }

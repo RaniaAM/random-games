@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import InfoModal from './InfoModal'
 import '../styles/card.css'
 import logo from '../logo.svg'
+import Spinner from './Spinner';
 
 class GuessTheThing extends Component {
     static contextType = UserContext;
@@ -17,7 +18,7 @@ class GuessTheThing extends Component {
         timeDisplay: 'none'
     }
 
-    //bring the data from context
+    // bring the data from context
     componentDidUpdate() {
         let data = this.context;
         if (data)
@@ -76,49 +77,59 @@ class GuessTheThing extends Component {
     render() {
         let output
         output = this.state.guessTheThing.map((item, index) => {
-            return <p key={index}>  {item.name} {item.menu}</p>
+            return (
+                <>
+                    <p key={index}> {item.name} </p> <p>{item.menu}</p>
+                </>
+            )
+
         })
 
+        if (this.state.guessTheThing.length === 0)
+            return (<Spinner />);
+        else {
+            return (
 
-        return (
-            <>
-                <div className="row justify-content-between">
-                    <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
-                    <Link to="/guess" className="return-btn">تبي ترجع</Link>
-                </div>
+                <>
+                    <div className="row justify-content-between">
+                        <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
+                        <Link to="/guess" className="return-btn">تبي ترجع</Link>
+                    </div>
 
 
-                <h1 className="first-do-title">حزر الشيء :</h1>
-                <div className="cardContainer row justify-content-center" >
-                    <div className="card guess-the-thing-text" >
-                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                        <p style={{ display: this.state.descDisplay }}>
-                            بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
+                    <h1 className="logo-name">حزر الشيء :</h1>
+                    <div className="cardContainer row justify-content-center" >
+                        <div className="card guess-the-thing-text" >
+                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                            <p style={{ display: this.state.descDisplay }}>
+                                بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
                         </p>
 
-                    </div>
-                    <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                        {/* timer */}
-                        <div class="countdown" style={{ display: this.state.timeDisplay }}>
-                            <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
-                            <svg>
-                                <circle r="18" cx="20" cy="20"></circle>
-                            </svg>
                         </div>
-                        {output[this.state.index]}
-                        <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+                        <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                            {/* timer */}
+                            <div class="countdown" style={{ display: this.state.timeDisplay }}>
+                                <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
+                                <svg>
+                                    <circle r="18" cx="20" cy="20"></circle>
+                                </svg>
+                            </div>
+                            {output[this.state.index]}
+                            <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
 
+                        </div>
                     </div>
-                </div>
-                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
 
-                <InfoModal
-                    show={this.state.modalShow}
-                    onHide={() => this.setModalShow(false)}
-                />
-            </>
-        );
+                    <InfoModal
+                        show={this.state.modalShow}
+                        onHide={() => this.setModalShow(false)}
+                    />
+                </>
+            );
+        }
     }
+
 }
 
 export default GuessTheThing;
