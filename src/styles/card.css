@@ -73,7 +73,7 @@ font-size: 1.5em;
   }
 
   .card-ship{
-      width: 100px;
+      width: 90px;
       justify-self: flex-start;
       z-index: 9;
       position: relative;
@@ -90,4 +90,26 @@ font-size: 1.5em;
     margin-top: 50px !important;
 
   }
-  
+
+  .card-img{
+    width: 200px;
+    height: 200px;
+    margin-top: 0;
+  }
+
+  .secound-img p{
+    width: 400px !important;
+    padding-top:0 !important ;
+
+}
+
+.guess-ship{
+
+  width: 90px;
+  justify-self: flex-start;
+  z-index: 9;
+  position: relative;
+  bottom: -5px !important;
+  right: -95px;
+
+}
